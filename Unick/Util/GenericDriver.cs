@@ -11,11 +11,11 @@ using Unickq.SpecFlow.Selenium;
 
 namespace Unick.Util
 {
-    [TestFixture]
 
+    [Binding]
     public class GenericDriver
     {
-   
+        protected readonly ScenarioContext ScenarioContext;
         protected readonly IWebDriver Browser;
         private IWebDriver _instance;
         public IWebDriver Instance
@@ -23,7 +23,7 @@ namespace Unick.Util
             get
             {
                 Wait.Until(t => { _instance = t; return t; });
-                return _instance;
+                return Instance;
             }
         }
 
@@ -33,19 +33,18 @@ namespace Unick.Util
             get
             {
                 if (wait == null)
-                    wait = new WebDriverWait(Browser, TimeSpan.FromSeconds(2));
+                    wait = new WebDriverWait(Browser, TimeSpan.FromSeconds(5));
 
                 return wait;
             }
         }
 
 
-        public void Dispose()
+       public void Dispose()
         {
             Browser.Close();
             Browser.Dispose();
             Browser.Quit();
-
         }
     }
 }

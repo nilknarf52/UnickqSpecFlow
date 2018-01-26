@@ -22,7 +22,8 @@ namespace Unick.Helpers
                                                     DateTime.Now.ToString("ddMMyyyy_HHmmss"));
 
                 //var artifactDirectory = (Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location)).Parent.Parent.FullName + "\\Evidencias";
-                var artifactDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Evidencias");
+                //var artifactDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Evidencias");
+                var artifactDirectory = ("c:\\Teste");
 
                 Directory.CreateDirectory(artifactDirectory);
 

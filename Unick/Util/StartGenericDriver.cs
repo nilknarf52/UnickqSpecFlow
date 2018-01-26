@@ -1,21 +1,25 @@
 ﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
+using Unickq.SpecFlow.Selenium;
+
 
 namespace Unick.Util
 {
 
     [TestFixture]
-
-    public class StartGenericDriver : GenericDriver
+    [Binding]
+    public class StartGenericDriver
     {
+       
+        //public IWebDriver Browser { get; set; }
 
-        [TearDown]
-
+        protected  IWebDriver Browser;
 
         [BeforeScenario]
         public void Setup()
@@ -25,21 +29,21 @@ namespace Unick.Util
         [AfterScenario]
         public void TearDown()
         {
-            Dispose();
+            //Dispose();
         }
 
         [AfterStep]
-        public void AfterStep()
+        public void AfterScenario()
         {
-            //if (ScenarioContext.Current.TestError != null)
+            if (ScenarioContext.Current.TestError != null)
             {
-
-              Helpers.TearDown.TakeScreenshot(Instance);
-
+                Browser = ScenarioContext.Current.GetWebDriver();
+                Helpers.TearDown.TakeScreenshot(Browser);
+                
             }
 
 
         }
-
+       
     }
 }
