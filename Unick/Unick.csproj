@@ -46,6 +46,10 @@
       <HintPath>..\packages\Autofac.Configuration.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -57,7 +61,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="TechTalk.SpecFlow, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.2.2.1\lib\net45\TechTalk.SpecFlow.dll</HintPath>
       <Private>True</Private>
@@ -89,25 +96,29 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Configuration\BaseUITest.cs" />
-    <Compile Include="Page.cs" />
-    <Compile Include="teste.feature.cs">
+    <Compile Include="Helpers\SQLRepository.cs" />
+    <Compile Include="Helpers\TearDown.cs" />
+    <Compile Include="Navegacao\FormulariodeContato\PageFormulario.cs" />
+    <Compile Include="Testes\FormulariodeContato\Formulario.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>teste.feature</DependentUpon>
+      <DependentUpon>Formulario.feature</DependentUpon>
     </Compile>
-    <Compile Include="TesteSteps.cs" />
+    <Compile Include="Navegacao\FormulariodeContato\BaseFormulario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\GenericDriver.cs" />
+    <Compile Include="Util\StartGenericDriver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="teste.feature">
+    <None Include="Testes\FormulariodeContato\Formulario.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>teste.feature.cs</LastGenOutput>
+      <LastGenOutput>Formulario.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Util\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,34 @@ using Unickq.SpecFlow.Selenium;
 
 namespace Unick.Util
 {
+    [TestFixture]
+
     public class GenericDriver
     {
-        private IWebDriver Browser;
-        protected  ScenarioContext ScenarioContext;
-        public GenericDriver(ScenarioContext scenarioContext)
+   
+        protected readonly IWebDriver Browser;
+        private IWebDriver _instance;
+        public IWebDriver Instance
         {
-            if (scenarioContext == null) throw new ArgumentNullException(nameof(scenarioContext));
-            ScenarioContext = scenarioContext;
-            Browser = scenarioContext.GetWebDriver();
+            get
+            {
+                Wait.Until(t => { _instance = t; return t; });
+                return _instance;
+            }
         }
+
+        private WebDriverWait wait;
+        public WebDriverWait Wait
+        {
+            get
+            {
+                if (wait == null)
+                    wait = new WebDriverWait(Browser, TimeSpan.FromSeconds(2));
+
+                return wait;
+            }
+        }
+
 
         public void Dispose()
         {

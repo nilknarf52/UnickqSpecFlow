@@ -1,5 +1,4 @@
-﻿using Google;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
@@ -15,9 +14,9 @@ using TechTalk.SpecFlow.Assist;
 using Unick.Configuration;
 using Unickq.SpecFlow.Selenium;
 
-namespace Unick
+namespace Unick.Navegacao.FormulariodeContato
 {
-    public class Page : BaseUITest
+    public class PageFormulario : BaseUITest
     {
         public class Formulario
         {
@@ -29,7 +28,7 @@ namespace Unick
         }
 
         public string Base { get; set; }
-        public Page(IWebDriver driver)
+        public PageFormulario(IWebDriver driver)
         {
             _driver = driver;
             PageFactory.InitElements(this._driver, this);

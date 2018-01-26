@@ -5,7 +5,7 @@ using TechTalk.SpecFlow;
 using Unick;
 using Unickq.SpecFlow.Selenium;
 
-namespace Google
+namespace Unick.Navegacao.FormulariodeContato
 {
 
     [Binding]
@@ -14,14 +14,14 @@ namespace Google
     {
         protected readonly ScenarioContext ScenarioContext;
         protected readonly IWebDriver Browser;
-        private Page Formulario;
+        private PageFormulario Formulario;
 
 
 
         [Given(@"que eu esteja no site jobmidia\.com\.br")]
         public void DadoQueEuEstejaNoSiteJobmidia_Com_Br()
         {
-            Formulario = new Page(Browser);
+            Formulario = new PageFormulario(Browser);
             Formulario.Navegacao();
         }
 

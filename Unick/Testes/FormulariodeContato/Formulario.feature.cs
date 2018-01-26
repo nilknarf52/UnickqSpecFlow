@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Unick
+namespace Unick.Testes.FormulariodeContato
 {
     using TechTalk.SpecFlow;
     using Autofac;
