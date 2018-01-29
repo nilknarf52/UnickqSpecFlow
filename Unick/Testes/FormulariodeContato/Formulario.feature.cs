@@ -85,12 +85,14 @@ namespace Unick.Testes.FormulariodeContato
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Preenchimento do formulario corretamente")]
+        [NUnit.Framework.CategoryAttribute("positivo")]
         [NUnit.Framework.TestCaseAttribute("Chrome", Category="Chrome", TestName="PreenchimentoDoFormularioCorretamente with Chrome")]
         public virtual void PreenchimentoDoFormularioCorretamente(string browser)
         {
 InitializeSeleniumBrowser(browser);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Preenchimento do formulario corretamente", new string[] {
-                        "Browser:Chrome"});
+                        "Browser:Chrome",
+                        "positivo"});
             this.ScenarioSetup(scenarioInfo);
             this.FeatureBackground();
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -106,6 +108,34 @@ InitializeSeleniumBrowser(browser);
             testRunner.When("informo todos os dados corretamente", ((string)(null)), table1, "Quando ");
             testRunner.And("clico em Enviar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
             testRunner.Then("o site ira informar a mensagem \'Sua mensagem foi enviada com sucesso.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Preenchimento do formulario com email incorreto")]
+        [NUnit.Framework.CategoryAttribute("negativo")]
+        [NUnit.Framework.TestCaseAttribute("Chrome", Category="Chrome", TestName="PreenchimentoDoFormularioComEmailIncorreto with Chrome")]
+        public virtual void PreenchimentoDoFormularioComEmailIncorreto(string browser)
+        {
+InitializeSeleniumBrowser(browser);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Preenchimento do formulario com email incorreto", new string[] {
+                        "Browser:Chrome",
+                        "negativo"});
+            this.ScenarioSetup(scenarioInfo);
+            this.FeatureBackground();
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Nome",
+                        "Email",
+                        "Telefone",
+                        "Mensagem"});
+            table2.AddRow(new string[] {
+                        "Franklin",
+                        "franklinjob@",
+                        "(21)991475281",
+                        "Teste de Mensagem"});
+            testRunner.When("entro em contato e informo todos os dados obrigatorios corretamente exceto email", ((string)(null)), table2, "Quando ");
+            testRunner.Then("o formulario irá alertar o preenchimento incorreto do email \'Formato de e-mail in" +
+                    "válido\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
             this.ScenarioCleanup();
         }
         

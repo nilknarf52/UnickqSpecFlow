@@ -86,8 +86,6 @@ namespace Unick.Navegacao.FormulariodeContato
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
             var contato = wait.Until(ExpectedConditions.ElementToBeClickable(contatomenu));
             contato.Click();
-            //Thread.Sleep(2000);
-
         }
 
         public void BotaoEnviar()
@@ -110,5 +108,12 @@ namespace Unick.Navegacao.FormulariodeContato
             Assert.AreEqual(assert, results.Text);
         }
 
+
+        public void ResultadoEmailIncorreto(string assert)
+        {
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
+            var results = wait.Until(ExpectedConditions.ElementExists(By.CssSelector("p.help-block.text-danger > ul > li")));
+            Assert.AreEqual(assert, results.Text);
+        }
     }
 }

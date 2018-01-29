@@ -58,6 +58,18 @@ namespace Unick.Navegacao.FormulariodeContato
         
         }
 
+        [When(@"entro em contato e informo todos os dados obrigatorios corretamente exceto email")]
+        public void QuandoEntroEmContatoEInformoTodosOsDadosObrigatoriosCorretamenteExcetoEmail(Table table)
+        {
+            Formulario.PreenchimentoForm(table);
+        }
+
+        [Then(@"o formulario irá alertar o preenchimento incorreto do email '(.*)'")]
+        public void EntaoOFormularioIraAlertarOPreenchimentoIncorretoDoEmail(string assert)
+        {
+            Formulario.ResultadoEmailIncorreto(assert);
+        }
+
 
     }
 }
