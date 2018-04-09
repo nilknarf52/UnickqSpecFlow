@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using System;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 using Unick;
 using Unickq.SpecFlow.Selenium;
 
@@ -9,67 +10,88 @@ namespace Unick.Navegacao.FormulariodeContato
 {
 
     [Binding]
-
-    public class TesteSteps : Steps
+  
+    public class BaseFormulario
     {
-        protected readonly ScenarioContext ScenarioContext;
+        protected readonly ScenarioContext scenarioContext;
         protected readonly IWebDriver Browser;
+
         private PageFormulario Formulario;
 
+        public BaseFormulario(ScenarioContext scenarioContext)
+        {
+            if (scenarioContext == null) throw new ArgumentNullException("scenarioContext");
+            this.scenarioContext = scenarioContext;
+            Browser = scenarioContext.GetWebDriver();
 
+        }
 
-        [Given(@"que eu esteja no site jobmidia\.com\.br")]
+        [Given(@"que eu esteja no site jobmidia")]
         public void DadoQueEuEstejaNoSiteJobmidia_Com_Br()
         {
             Formulario = new PageFormulario(Browser);
             Formulario.Navegacao();
         }
 
-        [When(@"eu navegar até a área do formulário de contato")]
+        [Given(@"navego em formulário de contato")]
         public void QuandoEuNavegarAteAAreaDoFormularioDeContato()
         {
             Formulario.ContatoMenu();
         }
-
-        [When(@"informo todos os dados corretamente")]
-        public void QuandoInformoTodosOsDadosCorretamente(Table table)
+       
+        [Given(@"informo todos os dados")]
+        public void PreenchimentoFormulario(Table table)
         {
+
             Formulario.PreenchimentoForm(table);
         }
 
-        [When(@"clico em Enviar")]
-        public void QuandoClicoEmEnviar()
+        [Given(@"informo o email incompleto")]
+        public void EmailIncompleto(Table table)
+        {
+           
+        }
+        [Given(@"não informo mensagem")]
+        public void DadoNaoInformoMensagem()
+        {
+            
+        }
+
+        [When(@"envio os dados")]
+        public void EnviarFormulario()
         {
             Formulario.BotaoEnviar();
         }
 
-        [Then(@"o site ira informar a mensagem '(.*)'")]
-        public void EntaoOSiteIraInformarAMensagem(string p0)
+        [Then(@"recebo a mensagem de sucesso '(.*)'")]
+        public void MensagemDeSucesso(string assert)
         {
-            Formulario.ResultadoCorreto(p0);
+            Formulario.ResultadoCorreto(assert);
         }
 
-
-        public TesteSteps(ScenarioContext scenarioContext)
-        {
-           if (scenarioContext == null) throw new ArgumentNullException(nameof(scenarioContext));
-            ScenarioContext = scenarioContext;
-            Browser = scenarioContext.GetWebDriver();
-        
-        }
-
-        [When(@"entro em contato e informo todos os dados obrigatorios corretamente exceto email")]
-        public void QuandoEntroEmContatoEInformoTodosOsDadosObrigatoriosCorretamenteExcetoEmail(Table table)
-        {
-            Formulario.PreenchimentoForm(table);
-        }
-
-        [Then(@"o formulario irá alertar o preenchimento incorreto do email '(.*)'")]
-        public void EntaoOFormularioIraAlertarOPreenchimentoIncorretoDoEmail(string assert)
+      
+        [Then(@"recebo a mensagem de validação do e-mail '(.*)'")]
+        public void ValidacaoEmail(string assert)
         {
             Formulario.ResultadoEmailIncorreto(assert);
         }
+        [Then(@"recebo a mensagem de validação de mensagem '(.*)'")]
+        public void ValidacaoMensagem(string assert)
+        {
+            Formulario.ResultadoMensagem(assert);
+        }
 
+        [Given(@"não informo telefone")]
+        public void DadoNaoInformoTelefone()
+        {
+            
+        }
+
+        [Then(@"recebo a mensagem de validação de telefone '(.*)'")]
+        public void EntaoReceboAMensagemDeValidacaoDeTelefone(string assert)
+        {
+            Formulario.ResultadoTelefone(assert);
+        }
 
     }
 }

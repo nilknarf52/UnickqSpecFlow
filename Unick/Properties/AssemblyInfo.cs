@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("Unick")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2018")]
 [assembly: AssemblyTrademark("")]
-[assembly: Parallelizable(ParallelScope.Fixtures)]
+[assembly: ParallelizableAttribute(ParallelScope.All)]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
