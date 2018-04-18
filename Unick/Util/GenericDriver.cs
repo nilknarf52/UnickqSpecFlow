@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
-using Unickq.SpecFlow.Selenium;
+//using Unickq.SpecFlow.Selenium;
 
 namespace Unick.Util
 {

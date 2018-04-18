@@ -19,7 +19,7 @@ using Unickq.SpecFlow.Selenium;
 
 namespace Unick.Navegacao.FormulariodeContato
 {
-
+    [Parallelizable]
     public class PageFormulario : BaseUITest
     {
 
@@ -58,9 +58,6 @@ namespace Unick.Navegacao.FormulariodeContato
 
         [FindsBy(How = How.Id, Using = "enviarbotao")]
         public IWebElement enviarbotao { get; set; }
-
-
-
 
         public void Navegacao()
         {

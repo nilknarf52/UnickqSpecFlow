@@ -21,7 +21,6 @@ namespace Unick.Testes.FormulariodeContato
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Formulario de Contato")]
-    [NUnit.Framework.ParallelizableAttribute()]
     public partial class FormularioDeContatoFeature
     {
         

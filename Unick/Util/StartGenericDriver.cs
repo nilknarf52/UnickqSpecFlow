@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
-using Unickq.SpecFlow.Selenium;
+//using Unickq.SpecFlow.Selenium;
 
 
 namespace Unick.Util
@@ -37,7 +37,7 @@ namespace Unick.Util
         {
             if (ScenarioContext.Current.TestError != null)
             {
-                Browser = ScenarioContext.Current.GetWebDriver();
+                //Browser = ScenarioContext.Current.GetWebDriver();
                 Helpers.TearDown.TakeScreenshot(Browser);
                 
             }

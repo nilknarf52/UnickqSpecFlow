@@ -10,10 +10,12 @@ namespace Unick.Navegacao.FormulariodeContato
 {
 
     [Binding]
-  
+    [Parallelizable]
     public class BaseFormulario
     {
-        protected readonly ScenarioContext scenarioContext;
+        //protected readonly ScenarioContext scenarioContext;
+        private readonly ScenarioContext scenarioContext;
+
         protected readonly IWebDriver Browser;
 
         private PageFormulario Formulario;
