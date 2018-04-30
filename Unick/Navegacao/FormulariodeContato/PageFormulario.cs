@@ -19,7 +19,7 @@ using Unickq.SpecFlow.Selenium;
 
 namespace Unick.Navegacao.FormulariodeContato
 {
-    [Parallelizable]
+   
     public class PageFormulario : BaseUITest
     {
 
@@ -69,7 +69,7 @@ namespace Unick.Navegacao.FormulariodeContato
 
         {
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
-            // var formulario = table.CreateInstance<Formulario>();
+            //var formulario = table.CreateInstance<Formulario>();
             _instance = table.CreateDynamicInstance();
 
 

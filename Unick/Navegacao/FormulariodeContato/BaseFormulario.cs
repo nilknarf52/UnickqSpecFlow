@@ -10,11 +10,11 @@ namespace Unick.Navegacao.FormulariodeContato
 {
 
     [Binding]
-    [Parallelizable]
+
     public class BaseFormulario
     {
-        //protected readonly ScenarioContext scenarioContext;
-        private readonly ScenarioContext scenarioContext;
+        protected readonly ScenarioContext scenarioContext;
+        //private readonly ScenarioContext scenarioContext;
 
         protected readonly IWebDriver Browser;
 
@@ -40,23 +40,29 @@ namespace Unick.Navegacao.FormulariodeContato
         {
             Formulario.ContatoMenu();
         }
-       
+
         [Given(@"informo todos os dados")]
         public void PreenchimentoFormulario(Table table)
         {
-
             Formulario.PreenchimentoForm(table);
         }
 
         [Given(@"informo o email incompleto")]
         public void EmailIncompleto(Table table)
         {
-           
+            Formulario.PreenchimentoForm(table);
         }
         [Given(@"não informo mensagem")]
-        public void DadoNaoInformoMensagem()
+        public void DadoNaoInformoMensagem(Table table)
         {
-            
+            Formulario.PreenchimentoForm(table);
+        }
+
+
+        [Given(@"não informo telefone")]
+        public void DadoNaoInformoTelefone(Table table)
+        {
+            Formulario.PreenchimentoForm(table);
         }
 
         [When(@"envio os dados")]
@@ -71,7 +77,7 @@ namespace Unick.Navegacao.FormulariodeContato
             Formulario.ResultadoCorreto(assert);
         }
 
-      
+
         [Then(@"recebo a mensagem de validação do e-mail '(.*)'")]
         public void ValidacaoEmail(string assert)
         {
@@ -83,11 +89,6 @@ namespace Unick.Navegacao.FormulariodeContato
             Formulario.ResultadoMensagem(assert);
         }
 
-        [Given(@"não informo telefone")]
-        public void DadoNaoInformoTelefone()
-        {
-            
-        }
 
         [Then(@"recebo a mensagem de validação de telefone '(.*)'")]
         public void EntaoReceboAMensagemDeValidacaoDeTelefone(string assert)
