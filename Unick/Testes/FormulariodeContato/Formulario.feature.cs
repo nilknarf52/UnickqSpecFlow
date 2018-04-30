@@ -81,7 +81,7 @@ namespace Unick.Testes.FormulariodeContato
         public virtual void FeatureBackground()
         {
             testRunner.Given("que eu esteja no site jobmidia", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
-            testRunner.And("navego em formulário de contato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+            testRunner.And("navego em formulario de contato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
         }
         
         [NUnit.Framework.TestAttribute()]
@@ -113,8 +113,8 @@ InitializeSeleniumBrowser(browser);
                         "(21)991475281",
                         "Teste de Mensagem"});
             testRunner.And("informo todos os dados", ((string)(null)), table1, "E ");
-            testRunner.When("envio os dados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-            testRunner.Then("recebo a mensagem de sucesso \'Sua mensagem foi enviada com sucesso.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
+            testRunner.When("envio o formulario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+            testRunner.Then("recebo a mensagem de sucesso \'Sua mensagem foi enviada com sucesso.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
             this.ScenarioCleanup();
         }
         
@@ -143,8 +143,8 @@ InitializeSeleniumBrowser(browser);
                         "(21)991475281",
                         "Teste de Mensagem"});
             testRunner.But("informo o email incompleto", ((string)(null)), table2, "Mas ");
-            testRunner.When("envio os dados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-            testRunner.Then("recebo a mensagem de validação do e-mail \'Formato de e-mail inválido\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
+            testRunner.When("envio o formulario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+            testRunner.Then("recebo a mensagem de validação do e-mail \'Formato de e-mail inválido\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
             this.ScenarioCleanup();
         }
         
@@ -175,8 +175,8 @@ InitializeSeleniumBrowser(browser);
                         "(21)991475281",
                         ""});
             testRunner.But("não informo mensagem", ((string)(null)), table3, "Mas ");
-            testRunner.When("envio os dados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-            testRunner.Then("recebo a mensagem de validação de mensagem \'Por favor informe uma mensagem.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
+            testRunner.When("envio o formulario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+            testRunner.Then("recebo a mensagem de validação de mensagem \'Por favor informe uma mensagem.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
             this.ScenarioCleanup();
         }
         
@@ -201,8 +201,8 @@ InitializeSeleniumBrowser(browser);
                         "",
                         "Teste de Mensagem"});
             testRunner.But("não informo telefone", ((string)(null)), table4, "Mas ");
-            testRunner.When("envio os dados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-            testRunner.Then("recebo a mensagem de validação de telefone \'Por favor informe seu telefone.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
+            testRunner.When("envio o formulario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+            testRunner.Then("recebo a mensagem de validação de telefone \'Por favor informe seu telefone.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
             this.ScenarioCleanup();
         }
         

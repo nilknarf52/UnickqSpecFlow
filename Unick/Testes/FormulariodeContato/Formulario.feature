@@ -6,37 +6,36 @@ Funcionalidade: Formulario de Contato
 
 Contexto: 
 	Dado que eu esteja no site jobmidia
-	E navego em formulário de contato
+	E navego em formulario de contato
 
 @Browser:FirefoxDocker @Browser:IEDocker @Browser:IE @Browser:ChromeDocker @Browser:Edge
-Cenario: Preenchimento do formulario corretamente
+Cenário: Preenchimento do formulario corretamente
 	E informo todos os dados
 	 |Nome		|Email					|Telefone	  | Mensagem		  |
 	 |Franklin	|franklinjob@hotmail.com|(21)991475281|	Teste de Mensagem |
-	Quando envio os dados
-	Entao recebo a mensagem de sucesso 'Sua mensagem foi enviada com sucesso.'
+	Quando envio o formulario
+	Então recebo a mensagem de sucesso 'Sua mensagem foi enviada com sucesso.'
 
-	
 @Browser:PhantomDocker @negativo @Browser:IE
-Cenario: Preenchimento do formulario com email incorreto
+Cenário: Preenchimento do formulario com email incorreto
 	Mas informo o email incompleto
 	|Nome		|Email					|Telefone	  | Mensagem		  |
     |Franklin	|franklinjob@           |(21)991475281|	Teste de Mensagem |
-	Quando envio os dados
-	Entao recebo a mensagem de validação do e-mail 'Formato de e-mail inválido'
+	Quando envio o formulario
+	Então recebo a mensagem de validação do e-mail 'Formato de e-mail inválido'
 
 @Browser:IE @Browser:Chrome @Browser:Firefox @negativo
-Cenario: Preenchimento do formulario sem mensagem
+Cenário: Preenchimento do formulario sem mensagem
 	Mas não informo mensagem
 	|Nome		|Email					|Telefone	  | Mensagem		  |
     |Franklin	|franklinjob@hotmail.com|(21)991475281|					  |
-	Quando envio os dados
-	Entao recebo a mensagem de validação de mensagem 'Por favor informe uma mensagem.'
+	Quando envio o formulario
+	Então recebo a mensagem de validação de mensagem 'Por favor informe uma mensagem.'
 
 @Browser:IE
-Cenario: Preenchimento do formulario telefone incorreto
+Cenário: Preenchimento do formulario telefone incorreto
 	Mas não informo telefone
 	|Nome		|Email					|Telefone	  | Mensagem		  |
     |Franklin	|franklinjob@hotmail.com|			  |	Teste de Mensagem |
-	Quando envio os dados
-	Entao recebo a mensagem de validação de telefone 'Por favor informe seu telefone.'
+	Quando envio o formulario
+	Então recebo a mensagem de validação de telefone 'Por favor informe seu telefone.'

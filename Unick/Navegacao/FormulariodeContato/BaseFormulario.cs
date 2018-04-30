@@ -35,7 +35,7 @@ namespace Unick.Navegacao.FormulariodeContato
             Formulario.Navegacao();
         }
 
-        [Given(@"navego em formulário de contato")]
+        [Given(@"navego em formulario de contato")]
         public void QuandoEuNavegarAteAAreaDoFormularioDeContato()
         {
             Formulario.ContatoMenu();
@@ -65,7 +65,7 @@ namespace Unick.Navegacao.FormulariodeContato
             Formulario.PreenchimentoForm(table);
         }
 
-        [When(@"envio os dados")]
+        [When(@"envio o formulario")]
         public void EnviarFormulario()
         {
             Formulario.BotaoEnviar();
