@@ -27,7 +27,7 @@ namespace Unick.Navegacao.FormulariodeContato
             Browser = scenarioContext.GetWebDriver();
 
         }
-
+        
         [Given(@"que eu esteja no site jobmidia")]
         public void DadoQueEuEstejaNoSiteJobmidia_Com_Br()
         {
