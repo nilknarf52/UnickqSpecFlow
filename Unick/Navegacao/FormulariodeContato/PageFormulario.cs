@@ -26,10 +26,10 @@ namespace Unick.Navegacao.FormulariodeContato
 
         public class Formulario
         {
-            public string Nome { get; set; }
-            public string Email { get; set; }
-            public string Telefone { get; set; }
-            public string Mensagem { get; set; }
+        //    public string Nome { get; set; }
+        //    public string Email { get; set; }
+        //    public string Telefone { get; set; }
+        //    public string Mensagem { get; set; }
 
         }
 
@@ -69,21 +69,21 @@ namespace Unick.Navegacao.FormulariodeContato
 
         {
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
-            var formulario = table.CreateInstance<Formulario>();
-            //_instance = table.CreateDynamicInstance();
+            //var formulario = table.CreateInstance<Formulario>();
+            _instance = table.CreateDynamicInstance();
 
 
             var nome = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(camponome));
-            nome.SendKeys(formulario.Nome);
+            nome.SendKeys(_instance.Nome);
 
             var email = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Id("email")));
-            email.SendKeys(formulario.Email);
+            email.SendKeys(_instance.Email);
 
             var telefone = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Id("phone")));
-            telefone.SendKeys(formulario.Telefone);
+            telefone.SendKeys(_instance.Telefone);
 
             var mensagem = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Id("message")));
-            mensagem.SendKeys(formulario.Mensagem);
+            mensagem.SendKeys(_instance.Mensagem);
 
         }
 
