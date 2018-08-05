@@ -13,7 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
-using Unick.Configuration;
+using Unick.Config;
 using Unickq.SpecFlow.Selenium;
 
 
@@ -90,9 +90,17 @@ namespace Unick.Navegacao.FormulariodeContato
         public void ContatoMenu()
         {
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
+            var titulocontato = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html//section[@id='contact']//h2[.='Contato']")));
             var contato = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(contatomenu));
+            Assert.IsTrue(titulocontato.Text == "CONTATO");
             contato.Click();
             Thread.Sleep(2000);
+        }
+
+        public void PaginaPrincipal()
+        {
+
+            Assert.IsTrue(_driver.Title == "JOBMIDIA Design");
         }
 
         public void BotaoEnviar()

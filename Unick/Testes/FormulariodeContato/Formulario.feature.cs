@@ -38,7 +38,7 @@ namespace Unick.Testes.FormulariodeContato
             builder.RegisterModule(new ConfigurationSettingsReader());
             container = builder.Build();
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Formulario de Contato", "\tEu como usuário, preciso contactar o prestador de serviço\r\n\tPara que seja necess" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Formulario de Contato", "\tEu como cliente, preciso contactar o prestador de serviço\r\n\tPara que seja necess" +
                     "ário um possível retorno\r\n\tPreciso preencher as informações do formulário corret" +
                     "amente.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
@@ -81,6 +81,7 @@ namespace Unick.Testes.FormulariodeContato
         public virtual void FeatureBackground()
         {
             testRunner.Given("que eu esteja no site jobmidia", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+            testRunner.And("sou direcionado para a página principal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
             testRunner.And("navego em formulario de contato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
         }
         
@@ -182,12 +183,14 @@ InitializeSeleniumBrowser(browser);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Preenchimento do formulario telefone incorreto")]
+        [NUnit.Framework.CategoryAttribute("Close")]
         [NUnit.Framework.TestCaseAttribute("IE", Category="IE", TestName="PreenchimentoDoFormularioTelefoneIncorreto with IE")]
         public virtual void PreenchimentoDoFormularioTelefoneIncorreto(string browser)
         {
 InitializeSeleniumBrowser(browser);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Preenchimento do formulario telefone incorreto", new string[] {
-                        "Browser:IE"});
+                        "Browser:IE",
+                        "Close"});
             this.ScenarioSetup(scenarioInfo);
             this.FeatureBackground();
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {

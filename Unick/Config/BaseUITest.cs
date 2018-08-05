@@ -1,5 +1,4 @@
-﻿
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 //using Unickq.SpecFlow.Selenium;
 
-namespace Unick.Configuration
+namespace Unick.Config
 {
     public class BaseUITest
     {

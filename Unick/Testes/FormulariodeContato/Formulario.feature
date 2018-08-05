@@ -1,11 +1,12 @@
 ﻿#language: pt-BR
 Funcionalidade: Formulario de Contato
-	Eu como usuário, preciso contactar o prestador de serviço
+	Eu como cliente, preciso contactar o prestador de serviço
 	Para que seja necessário um possível retorno
 	Preciso preencher as informações do formulário corretamente.
 
 Contexto: 
 	Dado que eu esteja no site jobmidia
+	E sou direcionado para a página principal
 	E navego em formulario de contato
 
 @Browser:FirefoxDocker @Browser:IEDocker @Browser:IE @Browser:ChromeDocker @Browser:Edge
@@ -32,7 +33,7 @@ Cenário: Preenchimento do formulario sem mensagem
 	Quando envio o formulario
 	Então recebo a mensagem de validação de mensagem 'Por favor informe uma mensagem.'
 
-@Browser:IE
+@Browser:IE @Close
 Cenário: Preenchimento do formulario telefone incorreto
 	Mas não informo telefone
 	|Nome		|Email					|Telefone	  | Mensagem		  |

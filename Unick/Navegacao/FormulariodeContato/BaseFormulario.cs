@@ -27,19 +27,27 @@ namespace Unick.Navegacao.FormulariodeContato
             Browser = scenarioContext.GetWebDriver();
 
         }
-        
+
         [Given(@"que eu esteja no site jobmidia")]
-        public void DadoQueEuEstejaNoSiteJobmidia_Com_Br()
+        public void DadoQueEuEstejaNoSiteJobmidia()
         {
             Formulario = new PageFormulario(Browser);
             Formulario.Navegacao();
         }
+
 
         [Given(@"navego em formulario de contato")]
         public void QuandoEuNavegarAteAAreaDoFormularioDeContato()
         {
             Formulario.ContatoMenu();
         }
+
+        [Given(@"sou direcionado para a página principal")]
+        public void DadoSouDirecionadoParaAPaginaPrincipal()
+        {
+            Formulario.PaginaPrincipal();
+        }
+
 
         [Given(@"informo todos os dados")]
         public void PreenchimentoFormulario(Table table)
