@@ -7,4 +7,4 @@ Todo o projeto foi construído utilizando:
   - Autofac
   - Unickbaseclass
 
-App.config com Remote Driver já com parâmetros necessário para o HUB do Selenium Grid
+App.config com Remote Driver já com parâmetros necessário para o HUB do Selenium Grid funcionar
